@@ -1,0 +1,3200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ecosyz — Building digital ecosystems</title>
+  <meta name="description" content="Ecosyz is the home of Open Idea and ORAA — two ventures from Ecosyz Core Solutions Private Limited, growing ideas into living digital ecosystems." />
+  <meta property="og:title" content="Ecosyz — Building digital ecosystems" />
+  <meta property="og:description" content="Home of Open Idea and ORAA. Where ideas grow into ecosystems." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#E3FDFD" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%2371C9CE' stroke-width='3'%3E%3Ccircle cx='50' cy='50' r='15'/%3E%3Ccircle cx='65' cy='50' r='15'/%3E%3Ccircle cx='35' cy='50' r='15'/%3E%3Ccircle cx='57.5' cy='37' r='15'/%3E%3Ccircle cx='42.5' cy='37' r='15'/%3E%3Ccircle cx='57.5' cy='63' r='15'/%3E%3Ccircle cx='42.5' cy='63' r='15'/%3E%3C/g%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Outfit:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@1,500;1,600;1,700&display=swap" rel="stylesheet" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ecosyz",
+    "legalName": "Ecosyz Core Solutions Private Limited",
+    "url": "https://ecosyz.in",
+    "description": "Ecosyz is the home of Open Idea and ORAA — two ventures from Ecosyz Core Solutions Private Limited.",
+    "subOrganization": [
+      { "@type": "Organization", "name": "Open Idea" },
+      { "@type": "Organization", "name": "ORAA" }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "936, 9th Floor, Gaur City Mall Office Spaces, Sector 4",
+      "addressLocality": "Greater Noida West",
+      "addressRegion": "Uttar Pradesh",
+      "postalCode": "201318",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+  <style>
+    /* ============ TOKENS ============ */
+    :root {
+      --bg: #E3FDFD;
+      --surface: #CBF1F5;
+      --surface-2: #A6E3E9;
+      --accent: #71C9CE;
+      --accent-deep: #4FAEB4;
+      --accent-soft: rgba(113, 201, 206, 0.18);
+      --accent-glow: rgba(113, 201, 206, 0.32);
+
+      --ink: #0F3F44;
+      --ink-2: #2A5A60;
+      --ink-soft: rgba(15, 63, 68, 0.65);
+      --ink-faint: rgba(15, 63, 68, 0.45);
+      --border: rgba(15, 63, 68, 0.08);
+      --border-strong: rgba(15, 63, 68, 0.18);
+
+      --on-accent: #FFFFFF;
+
+      --neu-light: rgba(255, 255, 255, 0.85);
+      --neu-dark:  rgba(15, 63, 68, 0.12);
+      --neu-out: 8px 8px 20px var(--neu-dark), -8px -8px 20px var(--neu-light);
+      --neu-out-sm: 4px 4px 10px var(--neu-dark), -4px -4px 10px var(--neu-light);
+      --neu-in:  inset 4px 4px 10px var(--neu-dark), inset -4px -4px 10px var(--neu-light);
+
+      --max-width: 1240px;
+      --section-pad: clamp(60px, 10vw, 140px);
+      --radius-sm: 10px;
+      --radius-md: 18px;
+      --radius-lg: 28px;
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    /* ============ RESET ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img, svg { display: block; max-width: 100%; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+    ul { list-style: none; }
+    input, textarea { font: inherit; }
+    ::selection { background: var(--accent); color: var(--on-accent); }
+
+    .container { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+    /* ============ TYPOGRAPHY ============ */
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+    h1 { font-size: clamp(2.5rem, 6vw, 4.75rem); }
+    h2 { font-size: clamp(2rem, 4.5vw, 3.25rem); }
+    h3 { font-size: 1.35rem; font-weight: 600; }
+    h4 { font-size: 0.95rem; font-weight: 600; letter-spacing: 0.02em; }
+
+    .accent { color: var(--accent-deep); font-style: italic; }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 18px;
+      padding: 6px 14px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent-soft);
+    }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 500; font-size: 0.95rem;
+      transition: transform 0.2s var(--bounce), box-shadow var(--transition), background var(--transition), color var(--transition);
+      cursor: pointer; white-space: nowrap; position: relative;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--on-accent);
+      box-shadow: 6px 6px 18px rgba(79, 174, 180, 0.45), -4px -4px 14px rgba(255,255,255,0.7);
+    }
+    .btn-primary:hover {
+      background: var(--accent-deep);
+      transform: translateY(-2px);
+      box-shadow: 8px 10px 24px rgba(79, 174, 180, 0.5), -6px -6px 18px rgba(255,255,255,0.8);
+    }
+    .btn-primary:active {
+      transform: translateY(0) scale(0.96);
+      box-shadow: var(--neu-in);
+    }
+    .btn-primary.pulse { animation: pulseBtn 2.6s ease-in-out infinite; }
+    .btn-secondary {
+      background: var(--bg);
+      color: var(--ink);
+      box-shadow: var(--neu-out-sm);
+    }
+    .btn-secondary:hover {
+      color: var(--accent-deep);
+      box-shadow: 5px 5px 14px var(--neu-dark), -5px -5px 14px var(--neu-light);
+    }
+    .btn-secondary:active { box-shadow: var(--neu-in); transform: scale(0.97); }
+    .btn-arrow { transition: transform var(--transition); }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ============ NAVBAR — pill only on the nav-links ============ */
+    .navbar {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 32px);
+      max-width: 1280px;
+      z-index: 100;
+      padding: 0;
+      background: transparent;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      transition: none;
+    }
+    .nav-container {
+      max-width: none;
+      padding: 4px 8px;
+    }
+    /* Logo and CTA float without their own bg */
+    .navbar .logo span {
+      color: rgba(255, 255, 255, 0.96);
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55);
+      transition: color var(--transition);
+    }
+    /* Only the nav-links wears the gray blur pill */
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      padding: 12px 28px;
+      background: rgba(40, 45, 55, 0.45);
+      backdrop-filter: blur(22px) saturate(150%);
+      -webkit-backdrop-filter: blur(22px) saturate(150%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+      transition: background var(--transition), border-color var(--transition);
+    }
+    .navbar.scrolled .nav-links {
+      background: rgba(40, 45, 55, 0.62);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+    .navbar .nav-links a {
+      color: rgba(255, 255, 255, 0.82);
+      text-shadow: none;
+      transition: color var(--transition);
+    }
+    .navbar .nav-links a:hover { color: #fff; }
+    .navbar .nav-links a::after { background: #fff; }
+    .nav-container {
+      max-width: var(--max-width); margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Fraunces', serif; font-weight: 600; font-size: 1.25rem;
+      color: var(--ink);
+    }
+    .logo-mark { width: 32px; height: 32px; }
+    .logo-mark circle { transition: stroke var(--transition); stroke: var(--ink); }
+    .logo:hover .logo-mark circle { stroke: var(--accent-deep); }
+
+    /* Full Flower-of-Life logo for the header — leaf-green */
+    .logo-mark-flower {
+      width: 42px;
+      height: 42px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 2px 8px rgba(34, 197, 94, 0.28));
+      transition: filter var(--transition), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .logo-mark-flower .ring {
+      fill: none;
+      stroke: #15803d;
+      stroke-width: 2.6;
+      transition: stroke var(--transition);
+    }
+    .logo-mark-flower .seed circle {
+      fill: none;
+      stroke: #22c55e;
+      stroke-width: 1.9;
+      opacity: 0.92;
+      transition: stroke var(--transition);
+    }
+    .logo:hover .logo-mark-flower {
+      transform: rotate(60deg);
+      filter: drop-shadow(0 3px 12px rgba(34, 197, 94, 0.45));
+    }
+    .logo:hover .logo-mark-flower .ring { stroke: #166534; }
+    .logo:hover .logo-mark-flower .seed circle { stroke: #16a34a; }
+
+    .nav-links { display: flex; gap: 36px; }
+    .nav-links a {
+      font-size: 0.92rem; color: var(--ink-soft);
+      transition: color var(--transition); position: relative;
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -6px; left: 0;
+      width: 0; height: 1.5px; background: var(--accent);
+      transition: width 0.35s var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    .theme-toggle {
+      width: 52px; height: 28px;
+      background: var(--bg);
+      box-shadow: var(--neu-in);
+      border-radius: 999px;
+      position: relative;
+      transition: box-shadow var(--transition);
+    }
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 22px; height: 22px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: var(--neu-out-sm);
+      transition: left 0.45s var(--bounce), background 0.3s, transform 0.3s var(--bounce);
+    }
+    .theme-toggle.on::after {
+      left: 27px;
+      background: var(--accent-deep);
+    }
+    .theme-toggle:active::after { transform: scale(0.9); }
+
+    .nav-cta { padding: 10px 22px; font-size: 0.9rem; }
+
+    /* WhatsApp circular icon button */
+    .whatsapp-btn {
+      display: grid;
+      place-items: center;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4facfe 0%, #38bdf8 100%);
+      color: #fff;
+      box-shadow:
+        0 8px 22px rgba(79, 172, 254, 0.55),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+      transition: transform 0.3s var(--bounce), box-shadow var(--transition), background var(--transition);
+      flex-shrink: 0;
+    }
+    .whatsapp-btn:hover {
+      transform: translateY(-2px) scale(1.06);
+      box-shadow:
+        0 12px 30px rgba(79, 172, 254, 0.65),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    }
+    .whatsapp-btn:active { transform: scale(0.94); }
+    .whatsapp-btn.pulse { animation: whatsappPulse 2.4s ease-in-out infinite; }
+    @keyframes whatsappPulse {
+      0%, 100% { box-shadow: 0 8px 22px rgba(79, 172, 254, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.18); }
+      50% { box-shadow: 0 8px 30px rgba(79, 172, 254, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.25); }
+    }
+
+    /* Animated hamburger — three bars that morph into an X */
+    .menu-toggle {
+      display: none;
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: rgba(255, 255, 255, 0.95);
+      cursor: pointer;
+      transition: background var(--transition), border-color var(--transition);
+      z-index: 110;
+    }
+    .menu-toggle:hover { background: rgba(255, 255, 255, 0.14); }
+    .menu-toggle .bar {
+      position: absolute;
+      left: 12px;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      border-radius: 2px;
+      transition: transform 0.4s var(--bounce), top 0.3s, opacity 0.25s;
+    }
+    .menu-toggle .bar:nth-child(1) { top: 15px; }
+    .menu-toggle .bar:nth-child(2) { top: 21px; }
+    .menu-toggle .bar:nth-child(3) { top: 27px; }
+    .menu-toggle.active .bar:nth-child(1) { top: 21px; transform: rotate(45deg); }
+    .menu-toggle.active .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .menu-toggle.active .bar:nth-child(3) { top: 21px; transform: rotate(-45deg); }
+
+    /* Mobile menu overlay */
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 5, 8, 0.96);
+      backdrop-filter: blur(24px) saturate(140%);
+      -webkit-backdrop-filter: blur(24px) saturate(140%);
+      z-index: 105;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+    .mobile-menu.open { opacity: 1; visibility: visible; }
+    .mobile-nav {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      padding: 80px 24px;
+    }
+    .mobile-nav a {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: rgba(255, 255, 255, 0.92);
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease, color 0.3s;
+    }
+    .mobile-menu.open .mobile-nav a {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .mobile-menu.open .mobile-nav a:nth-child(1) { transition-delay: 0.1s; }
+    .mobile-menu.open .mobile-nav a:nth-child(2) { transition-delay: 0.15s; }
+    .mobile-menu.open .mobile-nav a:nth-child(3) { transition-delay: 0.2s; }
+    .mobile-menu.open .mobile-nav a:nth-child(4) { transition-delay: 0.25s; }
+    .mobile-menu.open .mobile-nav a:nth-child(5) { transition-delay: 0.3s; }
+    .mobile-menu.open .mobile-nav .mobile-cta { transition-delay: 0.35s; }
+    .mobile-nav a:hover { color: var(--accent); }
+    .mobile-cta {
+      margin-top: 20px;
+      font-size: 1rem !important;
+      padding: 16px 36px !important;
+      font-family: 'Inter', sans-serif !important;
+      letter-spacing: 0 !important;
+      color: var(--on-accent) !important;
+    }
+
+    /* ============ SHIMMER LOADER ============ */
+    .loader {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: grid; place-items: center;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+    .loader.hidden { opacity: 0; visibility: hidden; }
+    .loader-inner { display: flex; flex-direction: column; align-items: center; gap: 22px; }
+    .shimmer-bar {
+      width: 220px; height: 6px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--surface) 0%, var(--surface-2) 25%, var(--accent) 50%, var(--surface-2) 75%, var(--surface) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.6s linear infinite;
+    }
+    .loader-mark { width: 56px; height: 56px; animation: spin 6s linear infinite; }
+    .loader-mark circle { fill: none; stroke: var(--accent); stroke-width: 1.6; }
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* ============ HERO 3D — neural network ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      background: #050508;
+      color: rgba(255, 255, 255, 0.9);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      font-family: 'Outfit', 'Inter', sans-serif;
+      isolation: isolate;
+    }
+    /* Left-biased vignette — darkens the left where the text now lives
+       so it reads clearly over the network on the right. */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 55% 90% at 22% 50%,
+          rgba(5, 5, 8, 0.72) 0%,
+          rgba(5, 5, 8, 0.42) 35%,
+          rgba(5, 5, 8, 0.18) 65%,
+          transparent 85%),
+        linear-gradient(90deg,
+          rgba(5, 5, 8, 0.35) 0%,
+          transparent 40%),
+        linear-gradient(180deg,
+          rgba(5, 5, 8, 0.3) 0%,
+          transparent 22%,
+          transparent 75%,
+          rgba(5, 5, 8, 0.45) 100%);
+    }
+    @media (max-width: 960px) {
+      .hero::before {
+        background:
+          radial-gradient(ellipse 80% 60% at center,
+            rgba(5, 5, 8, 0.65) 0%,
+            rgba(5, 5, 8, 0.3) 50%,
+            transparent 80%),
+          linear-gradient(180deg,
+            rgba(5, 5, 8, 0.4) 0%,
+            transparent 30%,
+            transparent 70%,
+            rgba(5, 5, 8, 0.5) 100%);
+      }
+    }
+    .hero-canvas {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      display: block;
+      cursor: crosshair;
+      z-index: 1;
+    }
+
+    /* Ecosyz brand mark — top-left */
+    .hero-brand-mark {
+      position: absolute;
+      top: 32px; left: 32px;
+      z-index: 12;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .hero-brand-mark .ecosyz-mark-lg {
+      width: 40px; height: 40px;
+      animation: spinSlow 60s linear infinite;
+      filter: drop-shadow(0 0 12px rgba(79, 172, 254, 0.6));
+    }
+    .hero-brand-mark .ecosyz-wordmark {
+      display: flex; flex-direction: column;
+    }
+    .hero-brand-mark .ecosyz-name {
+      color: #fff;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+    }
+    .hero-brand-mark .ecosyz-microtype {
+      color: rgba(147, 197, 253, 0.95);
+      font-size: 0.6rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* Glass panels (neural-net controls) */
+    .glass-panel {
+      backdrop-filter: blur(24px) saturate(120%);
+      -webkit-backdrop-filter: blur(24px) saturate(120%);
+      background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4), inset 0 0 20px rgba(255,255,255,0.02);
+      border-radius: 24px;
+      color: rgba(255, 255, 255, 0.9);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      position: absolute;
+      z-index: 12;
+      overflow: hidden;
+    }
+    .hero-panel-tr {
+      top: 50%;
+      right: 24px;
+      transform: translateY(-50%);
+      width: 220px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .theme-selector-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.55);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      justify-items: center;
+    }
+    .theme-button {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3), inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -2px 4px rgba(0,0,0,0.2);
+    }
+    #theme-0 { background: radial-gradient(circle at 30% 30%, #4facfe, #1e3a8a); }
+    #theme-1 { background: radial-gradient(circle at 30% 30%, #a78bfa, #4c1d95); }
+    #theme-2 { background: radial-gradient(circle at 30% 30%, #fb7185, #9f1239); }
+    .theme-button::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      opacity: 0;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
+    .theme-button:hover { transform: scale(1.15) translateY(-2px); }
+    .theme-button.active::after { opacity: 1; transform: scale(1); }
+    .density-controls {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .density-label {
+      display: flex; justify-content: space-between;
+      font-size: 12px; color: rgba(255, 255, 255, 0.6); font-weight: 300;
+    }
+    #density-value {
+      color: white; font-weight: 500;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+    .density-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%; height: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 10px;
+      outline: none;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+    .density-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 0 14px rgba(255,255,255,0.7), 0 2px 5px rgba(0,0,0,0.3);
+      transition: all 0.2s ease;
+    }
+    .density-slider::-webkit-slider-thumb:hover {
+      transform: scale(1.2);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+    }
+    .density-slider::-moz-range-thumb {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: #fff; border: none; cursor: pointer;
+      box-shadow: 0 0 14px rgba(255,255,255,0.7);
+    }
+
+    /* Hero — left-aligned content */
+    .hero-content {
+      position: relative;
+      z-index: 5;
+      width: 100%;
+      max-width: 1240px;
+      padding: 100px 24px 110px;
+      text-align: left;
+      pointer-events: none;
+    }
+    .hero-content > * {
+      pointer-events: auto;
+      max-width: 600px;
+    }
+    .hero-content h1 {
+      color: #fff;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+      margin-bottom: 24px;
+      max-width: none;
+      text-shadow:
+        0 2px 12px rgba(0, 0, 0, 0.85),
+        0 0 60px rgba(0, 0, 0, 0.55),
+        0 0 120px rgba(5, 5, 8, 0.4);
+    }
+    /* Keep "Where ideas {typewriter}" together on a single line —
+       no matter which word the typewriter cycles into. */
+    .hero-line-1 {
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .hero-content h1 .typewriter {
+      display: inline-block;
+      min-width: 5ch;
+    }
+    .hero-content .hero-tagline {
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.85), 0 0 30px rgba(0, 0, 0, 0.4);
+    }
+    .hero-content .typewriter {
+      font-family: 'Playfair Display', 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--accent);
+      background: none;
+      -webkit-background-clip: initial;
+      background-clip: initial;
+      -webkit-text-fill-color: var(--accent);
+      filter: drop-shadow(0 0 18px rgba(113, 201, 206, 0.55))
+              drop-shadow(0 0 40px rgba(113, 201, 206, 0.25));
+      position: relative;
+    }
+    .hero-content .typewriter::after {
+      content: '|';
+      background: none;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.85);
+      color: rgba(255, 255, 255, 0.85);
+      font-style: normal;
+      font-family: 'Inter', sans-serif;
+      margin-left: 4px;
+      animation: caret 1s steps(2) infinite;
+      font-weight: 300;
+      filter: drop-shadow(0 0 8px rgba(113, 201, 206, 0.6));
+    }
+    @keyframes caret { 50% { opacity: 0; } }
+
+    .hero-subhead {
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.82);
+      margin: -6px 0 24px;
+      max-width: 560px;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6);
+      line-height: 1.5;
+    }
+    .hero-subhead strong {
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .hero-projects-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 999px;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 26px;
+    }
+    .hero-projects-pill .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #4facfe;
+      box-shadow: 0 0 12px #4facfe;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    .hero-projects-pill strong { color: #fff; font-weight: 600; }
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.75);
+      max-width: 540px;
+      margin: 0 0 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+    .hero-actions .btn-primary {
+      box-shadow: 0 8px 28px rgba(113, 201, 206, 0.45);
+    }
+    .btn-secondary-3d {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn-secondary-3d:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .btn-secondary-3d:active { transform: translateY(0) scale(0.97); }
+
+    /* Hero bottom controls */
+    .hero-controls {
+      position: absolute;
+      bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 14px;
+      z-index: 20;
+    }
+    .control-button {
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 12px 24px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-family: 'Outfit', 'Inter', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      min-width: 100px;
+      text-align: center;
+    }
+    .control-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+    .control-button:active { transform: translateY(0) scale(0.97); }
+
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+
+    /* Hero responsive */
+    @media (max-width: 960px) {
+      .hero-brand-mark { padding: 8px 14px; gap: 10px; top: 16px; left: 16px; }
+      .hero-brand-mark .ecosyz-mark-lg { width: 30px; height: 30px; }
+      .hero-brand-mark .ecosyz-name { font-size: 1.1rem; }
+      .hero-brand-mark .ecosyz-microtype { font-size: 0.5rem; letter-spacing: 0.28em; }
+      .hero-panel-tr {
+        top: auto; bottom: 24px; right: 16px; left: 16px;
+        transform: none;
+        width: auto; padding: 14px;
+        flex-direction: row; align-items: center; justify-content: space-between;
+      }
+      .density-controls { flex: 1; max-width: 50%; }
+      .hero-content { padding: 80px 24px 100px; }
+    }
+
+    /* ============ SECTIONS ============ */
+    section { padding: var(--section-pad) 0; position: relative; }
+
+    .about-content {
+      max-width: 880px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about h2 { margin-bottom: 32px; }
+    .about p {
+      font-size: 1.15rem; color: var(--ink-2); margin-bottom: 20px;
+    }
+    .brand-statement {
+      margin-top: 40px; padding: 28px 32px;
+      background: var(--bg);
+      box-shadow: var(--neu-out);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--accent);
+      font-size: 1.02rem; color: var(--ink);
+    }
+    .brand-statement strong { color: var(--accent-deep); font-weight: 600; }
+
+    /* About — lead paragraph + Mission/Vision blocks + Principles */
+    .about-lead {
+      font-size: 1.18rem !important;
+      color: var(--ink) !important;
+      margin-bottom: 36px !important;
+    }
+    .about-blocks {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin: 36px 0 56px;
+    }
+    .about-block {
+      padding: 28px;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out-sm);
+      transition: transform 0.4s var(--bounce), box-shadow var(--transition);
+    }
+    .about-block:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--neu-out);
+    }
+    .about-block h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .about-block p {
+      color: var(--ink-2);
+      font-size: 1.02rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+    .principles-section { margin-top: 36px; }
+    .principles-title {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+    /* Principles — flip-card grid */
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 18px;
+      perspective: 1200px;
+      text-align: left;
+    }
+    @media (max-width: 1100px) { .principles-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px) { .principles-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 480px) { .principles-grid { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; } }
+
+    .principle-card {
+      pointer-events: none;
+      position: relative;
+      justify-self: center;
+      transform-style: preserve-3d;
+      width: 100%;
+      transition: transform 1s var(--bounce);
+    }
+    .principle-card:hover summary img { transform: scale(1.05); }
+    .principle-card[open] { transform: rotateY(180deg); }
+
+    .principle-card summary,
+    .principle-card .principle-back {
+      aspect-ratio: 3 / 4;
+      border: 3px solid var(--accent-deep);
+      border-radius: 1rem;
+      width: 100%;
+      backface-visibility: visible;
+      box-shadow: 0 14px 36px rgba(15, 63, 68, 0.12);
+      overflow: hidden;
+    }
+    .principle-card summary {
+      position: relative;
+      pointer-events: all;
+      cursor: pointer;
+      list-style: none;
+      transform: translateZ(2px);
+      display: block;
+      padding: 0;
+      background: #050816;
+    }
+    .principle-card summary::-webkit-details-marker,
+    .principle-card summary::marker { display: none; content: ''; }
+    .principle-card summary img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .principle-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 18px 16px;
+      background: linear-gradient(180deg, rgba(15, 63, 68, 0.05) 0%, rgba(15, 63, 68, 0.35) 55%, rgba(15, 63, 68, 0.92) 100%);
+    }
+    .principle-overlay h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(0.82rem, 1vw, 1.05rem);
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: #fff;
+      line-height: 1.2;
+      margin: 0;
+      width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.55);
+    }
+    .principle-card .principle-back {
+      pointer-events: none;
+      position: absolute;
+      top: 0;
+      transform: rotateY(180deg) translateZ(-1px);
+      display: flex;
+      align-items: flex-end;
+      padding: 22px;
+      background: linear-gradient(160deg, #FFFFFF 0%, var(--bg) 100%);
+    }
+    .principle-card .principle-back p {
+      font-family: 'Fraunces', Georgia, serif;
+      color: var(--ink);
+      font-size: 0.98rem;
+      line-height: 1.45;
+      margin: 0;
+    }
+    .principle-card .principle-back p em {
+      color: var(--accent-deep);
+      font-style: italic;
+    }
+
+    /* Projects — feature lists + tagline + target audience */
+    .project-tagline {
+      color: var(--accent-deep);
+      font-size: 0.95rem;
+      margin-bottom: 14px !important;
+      font-weight: 500;
+    }
+    .project-tagline em { font-style: italic; }
+    .project-features {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+    }
+    .project-features li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 0.88rem;
+      color: var(--ink-2);
+      line-height: 1.4;
+    }
+    .project-features li::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+    .project-meta {
+      padding: 12px 16px;
+      background: var(--accent-soft);
+      border-radius: var(--radius-sm);
+      margin-bottom: 18px;
+      font-size: 0.86rem;
+      color: var(--ink-2);
+      line-height: 1.45;
+    }
+    .project-meta strong { color: var(--accent-deep); font-weight: 600; }
+
+    /* Why — differentiators */
+    .differentiators {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 56px;
+    }
+    .differentiator {
+      padding: 28px 26px;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out-sm);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s var(--bounce), box-shadow var(--transition);
+    }
+    .differentiator::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.5s var(--transition);
+    }
+    .differentiator:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--neu-out);
+    }
+    .differentiator:hover::before { transform: scaleY(1); }
+    .differentiator-factor {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent-deep);
+      margin-bottom: 10px;
+    }
+    .differentiator-advantage {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    /* Company Credentials */
+    .credentials { background: var(--bg); }
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 56px;
+    }
+    .credentials-block {
+      padding: 24px 26px;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out-sm);
+      transition: box-shadow var(--transition);
+    }
+    .credentials-block:hover { box-shadow: var(--neu-out); }
+    .credentials-block h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+    .credentials-block p {
+      color: var(--ink);
+      font-size: 0.95rem;
+      font-weight: 500;
+      margin: 0;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+    .credentials-block ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .credentials-block ul li {
+      color: var(--ink-2);
+      font-size: 0.95rem;
+    }
+    .credentials-wide { grid-column: span 2; }
+    .credentials-compliance {
+      flex-direction: row !important;
+      flex-wrap: wrap;
+      gap: 12px 24px !important;
+    }
+    .credentials-compliance li {
+      display: flex; align-items: center; gap: 8px;
+      padding: 6px 14px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      font-size: 0.85rem;
+    }
+    .credentials-compliance strong { color: var(--accent-deep); font-weight: 600; }
+    .credentials-compliance span { color: var(--ink-faint); }
+
+    /* Recognitions row — partner / accreditation badges */
+    .recognitions {
+      margin-top: 64px;
+      text-align: center;
+    }
+    .recognitions-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-deep);
+      font-weight: 600;
+      margin: 0 0 28px;
+    }
+    .recognitions-grid {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .recognition-card {
+      width: 150px;
+      height: 110px;
+      background: #FFFFFF;
+      border: 1px solid rgba(113, 201, 206, 0.32);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px;
+      box-sizing: border-box;
+      transition: transform 0.4s var(--bounce), box-shadow var(--transition), border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .recognition-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--neu-out);
+      border-color: var(--accent);
+    }
+    .recognition-card img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .recognition-fallback {
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+      display: none;
+    }
+    .recognition-fallback strong {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+    .recognition-fallback span {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      color: var(--ink-soft);
+      letter-spacing: 0.06em;
+    }
+    /* PDF badge in the corner of clickable recognition cards */
+    a.recognition-card { text-decoration: none; }
+    .cert-badge {
+      position: absolute;
+      top: 6px; right: 6px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      padding: 2px 6px;
+      border-radius: 4px;
+      pointer-events: none;
+    }
+    /* Linked credential text (Founder etc.) */
+    .cred-link {
+      color: var(--accent-deep);
+      text-decoration: none;
+      transition: color var(--transition);
+      display: inline-flex;
+      align-items: center;
+    }
+    .cred-link:hover { color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .about-blocks { grid-template-columns: 1fr; }
+      .credentials-wide { grid-column: span 1; }
+      .project-features { grid-template-columns: 1fr; }
+    }
+
+    /* ============ PROJECTS — flagship ventures ============ */
+    .projects { background: var(--surface); }
+    .projects-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+      margin-top: 60px;
+    }
+    .project-card {
+      background: var(--bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--neu-out);
+      overflow: hidden;
+      transition: transform 0.4s var(--bounce), box-shadow var(--transition);
+      display: flex; flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 12px 14px 32px rgba(15, 63, 68, 0.16), -10px -10px 24px rgba(255,255,255,0.9);
+    }
+    .project-thumb {
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      position: relative;
+    }
+    .project-thumb-inner {
+      width: 100%; height: 100%;
+      display: grid; place-items: center;
+      transition: transform 0.7s cubic-bezier(0.2,0.8,0.2,1), filter 0.5s;
+    }
+    .project-card:hover .project-thumb-inner {
+      transform: scale(1.06);
+      filter: saturate(1.15);
+    }
+    .project-thumb-1 { background: linear-gradient(135deg, #71C9CE, #A6E3E9 60%, #CBF1F5); }
+    .project-thumb-2 { background: linear-gradient(135deg, #4FAEB4 0%, #71C9CE 50%, #A6E3E9 100%); }
+    .project-thumb svg { width: 60%; height: 60%; }
+    .project-thumb-1 svg { stroke: rgba(255,255,255,0.85); fill: none; stroke-width: 0.9; }
+    .project-thumb-2 svg { stroke: rgba(255,255,255,0.85); fill: none; stroke-width: 1.1; }
+
+    /* Real photos in project thumbs */
+    .project-img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.5s;
+    }
+    .project-card:hover .project-img {
+      transform: scale(1.06);
+      filter: saturate(1.15);
+    }
+    .project-thumb-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      mix-blend-mode: overlay;
+      transition: opacity 0.5s;
+    }
+    .project-thumb-overlay-1 {
+      background: linear-gradient(135deg, rgba(113, 201, 206, 0.45) 0%, transparent 55%, rgba(79, 174, 180, 0.25) 100%);
+    }
+    .project-thumb-overlay-2 {
+      background: linear-gradient(135deg, rgba(79, 174, 180, 0.4) 0%, transparent 55%, rgba(113, 201, 206, 0.3) 100%);
+    }
+
+    /* Open Idea logo display in the project card */
+    .project-thumb-logo {
+      background: #050816;
+      display: grid;
+      place-items: center;
+    }
+    /* Real image overlay — covers the SVG fallback when present */
+    .open-idea-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      z-index: 5;
+      padding: 16px;
+      box-sizing: border-box;
+      background: radial-gradient(circle at center, #0a1929 0%, #050816 70%);
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .project-card:hover .open-idea-img { transform: scale(1.04); }
+    .open-idea-logo {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 24px rgba(14, 165, 233, 0.5));
+      animation: spinSlow 80s linear infinite;
+      transition: filter var(--transition);
+    }
+    .project-card:hover .open-idea-logo {
+      filter: drop-shadow(0 0 36px rgba(56, 189, 248, 0.8));
+    }
+    .open-idea-wordmark {
+      position: absolute;
+      bottom: 12%;
+      left: 0; right: 0;
+      text-align: center;
+      pointer-events: none;
+    }
+    .open-idea-name {
+      display: block;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #22c55e 0%, #38bdf8 50%, #a78bfa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .open-idea-tag {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.62rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+
+    /* ORAA logo display in the project card */
+    .oraa-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      z-index: 5;
+      padding: 16px;
+      box-sizing: border-box;
+      background: radial-gradient(circle at center, #1a0612 0%, #0a0306 70%);
+      transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .project-card:hover .oraa-img { transform: scale(1.04); }
+    .oraa-logo {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 24px rgba(244, 114, 182, 0.45));
+      animation: spinSlow 80s linear infinite reverse;
+      transition: filter var(--transition);
+    }
+    .project-card:hover .oraa-logo {
+      filter: drop-shadow(0 0 36px rgba(251, 191, 36, 0.7));
+    }
+    .oraa-wordmark {
+      position: absolute;
+      bottom: 12%;
+      left: 0; right: 0;
+      text-align: center;
+      pointer-events: none;
+    }
+    .oraa-name {
+      display: block;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, #f472b6 0%, #fbbf24 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    .oraa-tag {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.62rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.85);
+      font-weight: 500;
+    }
+
+    .project-info { padding: 32px; }
+    .project-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent-deep);
+      background: var(--accent-soft);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .project-info h3 {
+      font-size: 1.9rem;
+      font-family: 'Fraunces', serif;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .project-info p {
+      color: var(--ink-2);
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: var(--accent-deep);
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-bottom: 1.5px solid transparent;
+      padding-bottom: 2px;
+      transition: border-color var(--transition), gap 0.3s var(--bounce), color var(--transition);
+    }
+    .project-link:hover {
+      border-bottom-color: var(--accent-deep);
+      gap: 12px;
+      color: var(--ink);
+    }
+
+    /* ============ SERVICES ============ */
+    .services { background: var(--bg); }
+    .services-header {
+      max-width: 720px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+    .services-header h2 { margin-bottom: 20px; }
+    .services-header p { color: var(--ink-2); font-size: 1.1rem; }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 28px;
+    }
+    .service-card {
+      padding: 36px 30px;
+      background: var(--bg);
+      box-shadow:
+        10px 10px 24px rgba(15, 63, 68, 0.1),
+        -10px -10px 24px rgba(255, 255, 255, 0.85);
+      border-radius: var(--radius-md);
+      transition: transform 0.4s var(--bounce), box-shadow 0.4s var(--transition), background 0.4s var(--transition);
+      cursor: default; position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      background: #FFFFFF;
+      box-shadow:
+        12px 14px 30px rgba(15, 63, 68, 0.15),
+        -10px -10px 24px rgba(255, 255, 255, 0.9);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-icon {
+      width: 56px; height: 56px;
+      display: grid; place-items: center;
+      background: var(--bg);
+      box-shadow: var(--neu-in);
+      color: var(--accent-deep);
+      border-radius: var(--radius-sm);
+      margin-bottom: 20px;
+      transition: color var(--transition), transform 0.4s var(--bounce);
+    }
+    .service-card:hover .service-icon {
+      color: var(--accent);
+      transform: rotate(-8deg) scale(1.05);
+    }
+    .service-card h3 { margin-bottom: 12px; transition: color var(--transition); }
+    .service-card:hover h3 { color: var(--accent-deep); }
+    .service-card p { color: var(--ink-2); font-size: 0.95rem; }
+
+    /* ============ STATS ============ */
+    .why { background: var(--surface); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px; margin-top: 60px;
+    }
+    .stat {
+      padding: 36px 28px;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out-sm);
+      transition: transform 0.4s var(--bounce), box-shadow var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .stat:hover { transform: translateY(-4px); box-shadow: var(--neu-out); }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem; font-weight: 600;
+      color: var(--accent-deep); line-height: 1;
+      margin-bottom: 10px;
+      display: flex; align-items: baseline; gap: 4px;
+    }
+    .stat-num .suffix { font-size: 1.6rem; color: var(--accent); }
+    .stat-label { color: var(--ink-2); font-size: 0.95rem; }
+    .stat-bar {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .stat.in-view .stat-bar { transform: scaleX(var(--progress, 1)); }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials { background: var(--bg); }
+    .quote-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px; margin-top: 60px;
+    }
+    .quote-card {
+      padding: 32px 28px;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out);
+      position: relative;
+    }
+    .quote-card p {
+      font-family: 'Fraunces', serif;
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .quote-meta {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+    .quote-author { display: flex; align-items: center; gap: 12px; }
+    .quote-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+      color: var(--on-accent);
+      display: grid; place-items: center;
+      font-weight: 600; font-size: 0.85rem;
+    }
+    .quote-name { font-weight: 600; font-size: 0.92rem; }
+    .quote-role { font-size: 0.8rem; color: var(--ink-faint); }
+
+    .like-btn {
+      position: relative;
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      background: var(--bg);
+      box-shadow: var(--neu-out-sm);
+      border-radius: 50%;
+      transition: transform 0.3s var(--bounce), box-shadow var(--transition);
+    }
+    .like-btn:hover { transform: scale(1.05); }
+    .like-btn:active { box-shadow: var(--neu-in); transform: scale(0.92); }
+    .like-btn svg {
+      width: 18px; height: 18px;
+      stroke: var(--ink-soft); fill: none;
+      stroke-width: 2;
+      transition: fill 0.4s var(--bounce), stroke 0.3s, transform 0.3s var(--bounce);
+    }
+    .like-btn.liked svg {
+      fill: #ff4f6e; stroke: #ff4f6e;
+      transform: scale(1.15);
+      animation: heartPop 0.5s var(--bounce);
+    }
+    @keyframes heartPop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.4); }
+      100% { transform: scale(1.15); }
+    }
+    .heart-particle {
+      position: absolute;
+      width: 12px; height: 12px;
+      pointer-events: none;
+      will-change: transform, opacity;
+    }
+    .heart-particle svg { fill: #ff4f6e; stroke: none; width: 100%; height: 100%; }
+
+    /* ============ CONTACT ============ */
+    .contact { background: var(--surface); }
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start;
+    }
+    .contact-info h2 { margin-bottom: 24px; }
+    .contact-info > p { color: var(--ink-2); font-size: 1.1rem; margin-bottom: 36px; }
+    .contact-detail {
+      display: flex; flex-direction: column; gap: 4px;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .contact-detail:last-child { border-bottom: none; }
+    .contact-detail strong {
+      font-size: 0.78rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-faint); font-weight: 500;
+    }
+    .contact-detail span { color: var(--ink); }
+
+    .contact-form {
+      background: var(--bg);
+      padding: 40px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--neu-out);
+      position: relative;
+    }
+    .form-field { margin-bottom: 20px; }
+    .form-field label {
+      display: block;
+      font-size: 0.82rem; letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-faint); margin-bottom: 8px;
+    }
+    .form-field input, .form-field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      background: var(--bg);
+      border: 1px solid transparent;
+      box-shadow: var(--neu-in);
+      border-radius: var(--radius-sm);
+      color: var(--ink);
+      transition: box-shadow var(--transition), border-color var(--transition);
+      outline: none;
+    }
+    .form-field input:focus, .form-field textarea:focus {
+      border-color: var(--accent);
+      box-shadow: var(--neu-in), 0 0 0 4px var(--accent-soft);
+    }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+    .contact-form button { width: 100%; justify-content: center; }
+
+    .form-success {
+      position: absolute; inset: 0;
+      background: var(--bg);
+      border-radius: var(--radius-md);
+      display: grid; place-items: center;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+    .form-success.show { opacity: 1; visibility: visible; }
+    .check-circle {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: var(--bg);
+      box-shadow: var(--neu-out);
+      display: grid; place-items: center;
+      margin-bottom: 18px;
+      animation: pop 0.5s var(--bounce);
+    }
+    @keyframes pop {
+      0% { transform: scale(0.4); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .check-svg path {
+      fill: none; stroke: var(--accent-deep);
+      stroke-width: 4; stroke-linecap: round; stroke-linejoin: round;
+      stroke-dasharray: 44; stroke-dashoffset: 44;
+    }
+    .form-success.show .check-svg path { animation: draw 0.6s 0.25s ease forwards; }
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+    .form-success h3 { margin-bottom: 6px; }
+    .form-success p { color: var(--ink-soft); text-align: center; }
+
+    /* ============ FOOTER ============ */
+    footer { padding: 80px 0 40px; border-top: 1px solid var(--border); background: #FFFFFF; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 40px; padding-bottom: 60px;
+    }
+    .footer-col h4 { margin-bottom: 18px; color: var(--ink); }
+    .footer-col ul li { margin-bottom: 12px; }
+    .footer-col a { color: var(--ink-soft); font-size: 0.92rem; transition: color var(--transition); }
+    .footer-col a:hover { color: var(--accent-deep); }
+    .footer-col p { color: var(--ink-soft); font-size: 0.92rem; margin-bottom: 8px; }
+    .footer-brand-text { color: var(--ink-soft); font-size: 0.92rem; margin-top: 16px; max-width: 320px; }
+    .social-links { display: flex; gap: 12px; margin-top: 16px; }
+    .social-links a {
+      width: 38px; height: 38px;
+      display: grid; place-items: center;
+      background: var(--bg);
+      box-shadow: var(--neu-out-sm);
+      border-radius: 50%;
+      transition: all var(--transition);
+      color: var(--ink-soft);
+    }
+    .social-links a:hover { color: var(--accent-deep); transform: translateY(-2px); }
+    .social-links a:active { box-shadow: var(--neu-in); transform: scale(0.94); }
+
+    .footer-legal {
+      padding-top: 30px; border-top: 1px solid var(--border);
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 24px; align-items: center;
+      font-size: 0.86rem; color: var(--ink-faint);
+    }
+    .footer-legal strong { color: var(--ink-2); font-weight: 500; }
+
+    /* ============ ANIMATIONS ============ */
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; transform: scale(1); }
+      50% { opacity: 0.95; transform: scale(1.06); }
+    }
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 6px 6px 18px rgba(79,174,180,0.45), -4px -4px 14px rgba(255,255,255,0.7); }
+      50%      { box-shadow: 6px 6px 28px rgba(79,174,180,0.7),  -4px -4px 14px rgba(255,255,255,0.7); }
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .reveal {
+      opacity: 0; transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ============ THEME BOUNDARY — soft teal border on every box ============ */
+    .project-card,
+    .about-block,
+    .principle,
+    .differentiator,
+    .credentials-block,
+    .brand-statement,
+    .quote-card,
+    .contact-form,
+    .stat,
+    .service-card {
+      border: 1px solid rgba(113, 201, 206, 0.32);
+      transition: border-color 0.3s ease, transform 0.4s var(--bounce), box-shadow var(--transition);
+    }
+    .project-card:hover,
+    .about-block:hover,
+    .principle:hover,
+    .differentiator:hover,
+    .credentials-block:hover,
+    .quote-card:hover,
+    .stat:hover,
+    .service-card:hover {
+      border-color: var(--accent);
+      box-shadow: var(--neu-out), 0 0 0 3px var(--accent-soft);
+    }
+    /* Brand statement keeps a deeper-teal left edge for emphasis */
+    .brand-statement {
+      border-color: rgba(113, 201, 206, 0.4);
+      border-left: 4px solid var(--accent);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .menu-toggle { display: none !important; }
+      .nav-container { padding: 8px 14px 8px 22px; }
+      .navbar { top: 10px; width: calc(100% - 20px); }
+      .hero { padding-top: 120px; min-height: auto; }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-visual { max-width: 360px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer-legal { grid-template-columns: 1fr; text-align: left; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-meta { gap: 24px; }
+      .contact-form { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ SHIMMER LOADER ============ -->
+  <div class="loader" id="loader">
+    <div class="loader-inner">
+      <svg class="loader-mark" viewBox="-50 -50 100 100">
+        <circle cx="0" cy="0" r="14"/>
+        <circle cx="14" cy="0" r="14"/>
+        <circle cx="-14" cy="0" r="14"/>
+        <circle cx="7" cy="-12.12" r="14"/>
+        <circle cx="-7" cy="-12.12" r="14"/>
+        <circle cx="7" cy="12.12" r="14"/>
+        <circle cx="-7" cy="12.12" r="14"/>
+      </svg>
+      <div class="shimmer-bar"></div>
+    </div>
+  </div>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <svg class="logo-mark-flower" viewBox="-150 -150 300 300" aria-label="Ecosyz">
+          <circle class="ring" cx="0" cy="0" r="120"/>
+          <g class="seed">
+            <circle cx="0" cy="0" r="40"/>
+            <circle cx="40" cy="0" r="40"/>
+            <circle cx="20" cy="34.64" r="40"/>
+            <circle cx="-20" cy="34.64" r="40"/>
+            <circle cx="-40" cy="0" r="40"/>
+            <circle cx="-20" cy="-34.64" r="40"/>
+            <circle cx="20" cy="-34.64" r="40"/>
+            <circle cx="80" cy="0" r="40"/>
+            <circle cx="40" cy="69.28" r="40"/>
+            <circle cx="-40" cy="69.28" r="40"/>
+            <circle cx="-80" cy="0" r="40"/>
+            <circle cx="-40" cy="-69.28" r="40"/>
+            <circle cx="40" cy="-69.28" r="40"/>
+            <circle cx="60" cy="34.64" r="40"/>
+            <circle cx="0" cy="69.28" r="40"/>
+            <circle cx="-60" cy="34.64" r="40"/>
+            <circle cx="-60" cy="-34.64" r="40"/>
+            <circle cx="0" cy="-69.28" r="40"/>
+            <circle cx="60" cy="-34.64" r="40"/>
+          </g>
+        </svg>
+        <span>Ecosyz</span>
+      </a>
+      <a href="https://wa.me/917838832332" target="_blank" rel="noopener noreferrer" class="whatsapp-btn pulse" aria-label="Chat on WhatsApp">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+    <nav class="mobile-nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary mobile-cta">Start a project</a>
+    </nav>
+  </div>
+
+  <!-- ============ HERO — Neural Network ============ -->
+  <section class="hero" id="hero">
+    <canvas id="neural-canvas" class="hero-canvas"></canvas>
+
+    <!-- Center: brand content -->
+    <div class="hero-content">
+      <h1>
+        <span class="hero-line-1">Where ideas <span class="typewriter" id="typewriter">grow</span></span><br/>
+        into ecosystems.
+      </h1>
+      <p class="hero-subhead">
+        <strong>Ecosyz Core Solution Ltd.</strong> — Building the Future of Open Innovation.
+      </p>
+      <div class="hero-projects-pill">
+        <span class="dot"></span>
+        <span>Currently building <strong>Open Idea</strong> &amp; <strong>ORAA</strong></span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">
+          See our projects
+          <svg class="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#about" class="btn-secondary-3d">Our story</a>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="about reveal" id="about">
+    <div class="container">
+      <div class="about-content">
+        <span class="section-label">About Ecosyz</span>
+        <h2>Building <span class="accent">open ecosystems</span> for an open future.</h2>
+
+        <p class="about-lead">
+          Ecosyz Core Solution Ltd. is a forward-driven company focused on
+          creating impactful digital and physical ecosystems — operating at the
+          intersection of technology, transparency, and sustainability.
+        </p>
+
+        <div class="about-blocks">
+          <div class="about-block">
+            <h3>Mission</h3>
+            <p>To empower individuals and communities by enabling open
+              collaboration and responsible consumption.</p>
+          </div>
+          <div class="about-block">
+            <h3>Vision</h3>
+            <p>To build a globally recognized ecosystem where innovation is
+              open, and sustainability is standard.</p>
+          </div>
+        </div>
+
+        <div class="principles-section">
+          <h3 class="principles-title">Core Principles</h3>
+          <div class="principles-grid">
+            <details class="principle-card" style="--rotation: 5deg">
+              <summary>
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600&q=80&auto=format&fit=crop" alt="Light through glass" loading="lazy" />
+                <div class="principle-overlay"><h3>Transparency</h3></div>
+              </summary>
+              <div class="principle-back">
+                <p>Clear and open processes &mdash; every decision visible, every action accountable.</p>
+              </div>
+            </details>
+
+            <details class="principle-card" style="--rotation: -4deg">
+              <summary>
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80&auto=format&fit=crop" alt="People collaborating" loading="lazy" />
+                <div class="principle-overlay"><h3>Open Collaboration</h3></div>
+              </summary>
+              <div class="principle-back">
+                <p>We build <em>with</em> people, not for them. Anyone can contribute, anyone can fork.</p>
+              </div>
+            </details>
+
+            <details class="principle-card" style="--rotation: 6deg">
+              <summary>
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80&auto=format&fit=crop" alt="Hands joined together" loading="lazy" />
+                <div class="principle-overlay"><h3>Community First</h3></div>
+              </summary>
+              <div class="principle-back">
+                <p>People before products. Long-term relationships over short-term wins.</p>
+              </div>
+            </details>
+
+            <details class="principle-card" style="--rotation: -5deg">
+              <summary>
+                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80&auto=format&fit=crop" alt="Fresh green leaves" loading="lazy" />
+                <div class="principle-overlay"><h3>Sustainability</h3></div>
+              </summary>
+              <div class="principle-back">
+                <p>Eco-conscious choices in materials, code, and operations &mdash; built to last.</p>
+              </div>
+            </details>
+
+            <details class="principle-card" style="--rotation: 3deg">
+              <summary>
+                <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=600&q=80&auto=format&fit=crop" alt="Spiral staircase ascending" loading="lazy" />
+                <div class="principle-overlay"><h3>Scalability</h3></div>
+              </summary>
+              <div class="principle-back">
+                <p>Designed to grow &mdash; from one user to a million, from one venture to many.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="brand-statement">
+          <strong>Ecosyz&trade;</strong> is the brand and parent identity of
+          <strong>Ecosyz Core Solution Ltd.</strong> Our current portfolio
+          includes <strong>Open Idea</strong> and <strong>ORAA</strong>.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="projects reveal" id="projects">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label">Our projects</span>
+        <h2>Two ventures, <span class="accent">one ecosystem</span>.</h2>
+        <p>Ecosyz builds independent products that share a common philosophy — open, useful, made to grow.</p>
+      </div>
+
+      <div class="projects-grid">
+        <!-- OPEN IDEA -->
+        <article class="project-card">
+          <div class="project-thumb project-thumb-logo">
+            <img src="openidea.jpg" alt="Open Idea — Innovation Platform" class="open-idea-img" loading="lazy" onerror="this.style.display='none';" />
+            <svg class="open-idea-logo" viewBox="-110 -110 220 220" aria-label="Open Idea logo">
+              <defs>
+                <linearGradient id="oiStrokeGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0ea5e9"/>
+                  <stop offset="100%" stop-color="#38bdf8"/>
+                </linearGradient>
+                <radialGradient id="oiBgGrad" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#0a1929"/>
+                  <stop offset="100%" stop-color="#020617"/>
+                </radialGradient>
+              </defs>
+              <rect x="-110" y="-110" width="220" height="220" fill="url(#oiBgGrad)"/>
+              <circle cx="0" cy="0" r="98" fill="none" stroke="url(#oiStrokeGrad)" stroke-width="2.5" opacity="0.95"/>
+              <g fill="none" stroke="url(#oiStrokeGrad)" stroke-width="2.5" opacity="0.9">
+                <circle cx="50" cy="0" r="50"/>
+                <circle cx="25" cy="43.3" r="50"/>
+                <circle cx="-25" cy="43.3" r="50"/>
+                <circle cx="-50" cy="0" r="50"/>
+                <circle cx="-25" cy="-43.3" r="50"/>
+                <circle cx="25" cy="-43.3" r="50"/>
+              </g>
+            </svg>
+            <div class="open-idea-wordmark">
+              <span class="open-idea-name">Open Idea</span>
+              <span class="open-idea-tag">Innovation Platform</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Civic-Tech &middot; Open-Source</span>
+            <h3>Open Idea</h3>
+            <p class="project-tagline"><em>Where Ideas Become Open-Source Movements.</em></p>
+            <p>
+              A civic-tech and open-source platform that helps individuals discover,
+              contribute to, and launch meaningful projects — bridging ideas,
+              contributors, and execution.
+            </p>
+            <ul class="project-features">
+              <li>Project discovery platform</li>
+              <li>Contributor matching system</li>
+              <li>Open-source collaboration tools</li>
+              <li>Learning-focused project ranking</li>
+              <li>Community-driven innovation</li>
+            </ul>
+            <div class="project-meta">
+              <span><strong>For:</strong> Developers, designers, researchers, civic-tech contributors</span>
+            </div>
+            <a href="https://openidea.world" target="_blank" rel="noopener noreferrer" class="project-link">
+              Visit openidea.world
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- ORAA -->
+        <article class="project-card">
+          <div class="project-thumb project-thumb-logo">
+            <img src="oraa.png" alt="Oraa — Sustainable Fashion" class="oraa-img" loading="lazy" onerror="this.style.display='none';" />
+            <svg class="oraa-logo" viewBox="-110 -110 220 220" aria-label="ORAA logo">
+              <defs>
+                <linearGradient id="oraaStrokeGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#f472b6"/>
+                  <stop offset="100%" stop-color="#fbbf24"/>
+                </linearGradient>
+                <radialGradient id="oraaBgGrad" cx="50%" cy="50%" r="60%">
+                  <stop offset="0%" stop-color="#1a0612"/>
+                  <stop offset="100%" stop-color="#0a0306"/>
+                </radialGradient>
+              </defs>
+              <rect x="-110" y="-110" width="220" height="220" fill="url(#oraaBgGrad)"/>
+              <g fill="none" stroke="url(#oraaStrokeGrad)" stroke-width="2.5" opacity="0.95">
+                <circle cx="0" cy="0" r="98"/>
+                <ellipse cx="0" cy="-45" rx="22" ry="55"/>
+                <g transform="rotate(45)"><ellipse cx="0" cy="-45" rx="22" ry="55"/></g>
+                <g transform="rotate(90)"><ellipse cx="0" cy="-45" rx="22" ry="55"/></g>
+                <g transform="rotate(135)"><ellipse cx="0" cy="-45" rx="22" ry="55"/></g>
+                <circle cx="0" cy="0" r="12"/>
+              </g>
+            </svg>
+            <div class="oraa-wordmark">
+              <span class="oraa-name">ORAA</span>
+              <span class="oraa-tag">Sustainable Fashion</span>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Sustainable Fashion</span>
+            <h3>ORAA</h3>
+            <p class="project-tagline"><em>Sustainable Fashion, Rooted in Purpose.</em></p>
+            <p>
+              An eco-conscious fashion brand creating clothing that blends
+              tradition, quality, and modern design — making sustainability
+              accessible and desirable.
+            </p>
+            <ul class="project-features">
+              <li>Sarees and ethnic wear</li>
+              <li>Sustainable fabrics</li>
+              <li>Ethical sourcing</li>
+              <li>Affordable luxury</li>
+            </ul>
+            <div class="project-meta">
+              <span><strong>For:</strong> Conscious consumers, modern women embracing tradition, eco-aware buyers</span>
+            </div>
+            <a href="#" class="project-link">
+              Learn about ORAA
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COMPANY CREDENTIALS ============ -->
+  <section class="credentials reveal" id="credentials">
+    <div class="container">
+      <div class="services-header">
+        <span class="section-label">Company Credentials</span>
+        <h2>The <span class="accent">official record</span>.</h2>
+        <p>Legal identity and company information for Ecosyz Core Solution Ltd.</p>
+      </div>
+
+      <div class="credentials-grid">
+        <div class="credentials-block">
+          <h4>Company Name</h4>
+          <p>Ecosyz Core Solution Ltd.</p>
+        </div>
+        <div class="credentials-block">
+          <h4>Legal Status</h4>
+          <p>Private Limited Company (India)</p>
+        </div>
+        <div class="credentials-block">
+          <h4>Founder</h4>
+          <p><a href="https://www.linkedin.com/in/sonyy/" target="_blank" rel="noopener noreferrer" class="cred-link">Sony Yadav <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="display:inline-block;vertical-align:-1px;margin-left:4px"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"/></svg></a></p>
+        </div>
+        <div class="credentials-block">
+          <h4>Year of Incorporation</h4>
+          <p>2024</p>
+        </div>
+        <div class="credentials-block">
+          <h4>CIN</h4>
+          <p>U62020UP2024PTC207909</p>
+        </div>
+        <div class="credentials-block">
+          <h4>Registration</h4>
+          <p>Companies Act, India</p>
+        </div>
+        <div class="credentials-block credentials-wide">
+          <h4>Business Activities</h4>
+          <ul>
+            <li>Technology Platforms (Open Source &amp; Civic Tech)</li>
+            <li>E-commerce (Sustainable Fashion)</li>
+            <li>Digital Ecosystem Development</li>
+          </ul>
+        </div>
+        <div class="credentials-block credentials-wide">
+          <h4>Compliance &amp; Registrations</h4>
+          <ul class="credentials-compliance">
+            <li><strong>DPIIT Recognition</strong> <span>DIPP213015</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="recognitions">
+        <h3 class="recognitions-title">Recognized &amp; Supported By</h3>
+        <div class="recognitions-grid">
+          <a href="dpiit-certificate.pdf" target="_blank" rel="noopener noreferrer" class="recognition-card" title="View DPIIT certificate">
+            <img src="dpiit.png" alt="DPIIT Startup India recognition" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="recognition-fallback">
+              <strong>DPIIT</strong>
+              <span>#startupindia</span>
+            </div>
+            <span class="cert-badge" aria-hidden="true">PDF</span>
+          </a>
+          <a href="start-in-up-certificate.pdf" target="_blank" rel="noopener noreferrer" class="recognition-card" title="View Start in UP certificate">
+            <img src="start-in-up.png" alt="Start in UP" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="recognition-fallback">
+              <strong>Start in UP</strong>
+              <span>UP Govt. Programme</span>
+            </div>
+            <span class="cert-badge" aria-hidden="true">PDF</span>
+          </a>
+          <a href="udyam-openidea-certificate.pdf" target="_blank" rel="noopener noreferrer" class="recognition-card" title="View Udyam (MSME) registration">
+            <div class="recognition-fallback" style="display: flex;">
+              <strong>Udyam</strong>
+              <span>MSME Registered</span>
+            </div>
+            <span class="cert-badge" aria-hidden="true">PDF</span>
+          </a>
+          <div class="recognition-card">
+            <img src="gbu.png" alt="GBU Incubation Centre" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="recognition-fallback">
+              <strong>GBU</strong>
+              <span>Incubation Centre</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="logo">
+            <svg class="logo-mark" viewBox="-50 -50 100 100">
+              <g fill="none" stroke-width="2.4">
+                <circle cx="0" cy="0" r="14"/>
+                <circle cx="14" cy="0" r="14"/>
+                <circle cx="-14" cy="0" r="14"/>
+                <circle cx="7" cy="-12.12" r="14"/>
+                <circle cx="-7" cy="-12.12" r="14"/>
+                <circle cx="7" cy="12.12" r="14"/>
+                <circle cx="-7" cy="12.12" r="14"/>
+              </g>
+            </svg>
+            <span>Ecosyz</span>
+          </a>
+          <p class="footer-brand-text">
+            Ecosyz&trade; is the brand of Ecosyz Core Solutions Private Limited.
+            We're currently building <strong>Open Idea</strong> and <strong>ORAA</strong>.
+          </p>
+          <div class="social-links">
+            <a href="https://www.linkedin.com/company/110214398/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.339 18.337H5.667v-8.59h2.672v8.59zM7.003 8.574a1.548 1.548 0 1 1 0-3.096 1.548 1.548 0 0 1 0 3.096zm11.335 9.763h-2.669V14.16c0-.996-.018-2.277-1.388-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248h-2.667v-8.59h2.56v1.174h.037c.355-.675 1.227-1.387 2.524-1.387 2.704 0 3.203 1.778 3.203 4.092v4.71z"/></svg></a>
+            <a href="#" aria-label="Twitter"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153a4.908 4.908 0 0 1 1.153 1.772c.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772 4.915 4.915 0 0 1-1.772 1.153c-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.25a1.25 1.25 0 0 0-2.5 0 1.25 1.25 0 0 0 2.5 0zM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Projects</h4>
+          <ul>
+            <li><a href="#projects">Open Idea</a></li>
+            <li><a href="#projects">ORAA</a></li>
+          </ul>
+          <h4 style="margin-top: 28px;">Company</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Refund Policy</a></li>
+            <li><a href="#">Cookie Policy</a></li>
+            <li><a href="#">Grievance Officer</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Reach us</h4>
+          <p>info@openidea.world</p>
+          <p>+91 78388 32332</p>
+          <p>Mon–Fri, 10am–7pm IST</p>
+        </div>
+      </div>
+
+      <div class="footer-legal">
+        <div>
+          <strong>Ecosyz Core Solutions Private Limited</strong> &nbsp;·&nbsp;
+          CIN: U62020UP2024PTC207909<br/>
+          Registered Office: 936, 9th Floor, Gaur City Mall Office Spaces, Sector 4, Greater Noida West 201318, India
+        </div>
+        <div>© 2026 Ecosyz Core Solutions Pvt Ltd</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ THREE.JS NEURAL NETWORK ============ -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+    import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+    import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+    import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+    import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+    const config = {
+      paused: false,
+      activePaletteIndex: 0,
+      currentFormation: 0,
+      numFormations: 3,
+      densityFactor: 1
+    };
+
+    const colorPalettes = [
+      // Ocean Blue (default)
+      [ new THREE.Color(0x4facfe), new THREE.Color(0x00d4ff), new THREE.Color(0x6366f1), new THREE.Color(0x60a5fa), new THREE.Color(0x93c5fd) ],
+      // Aurora purple
+      [ new THREE.Color(0x667eea), new THREE.Color(0x764ba2), new THREE.Color(0xf093fb), new THREE.Color(0x9d50bb), new THREE.Color(0x6e48aa) ],
+      // Sunset coral
+      [ new THREE.Color(0xf857a6), new THREE.Color(0xff5858), new THREE.Color(0xfeca57), new THREE.Color(0xff6348), new THREE.Color(0xff9068) ]
+    ];
+
+    const heroSection = document.getElementById('hero');
+    const canvas = document.getElementById('neural-canvas');
+
+    function size() { return { w: heroSection.clientWidth, h: heroSection.clientHeight }; }
+
+    const scene = new THREE.Scene();
+    scene.fog = new THREE.FogExp2(0x000000, 0.002);
+
+    let { w, h } = size();
+    const camera = new THREE.PerspectiveCamera(65, w / h, 0.1, 1000);
+    camera.position.set(0, 8, 28);
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, powerPreference: "high-performance" });
+    renderer.setSize(w, h, false);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000);
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+
+    // Starfield — denser, with a few bright highlight stars for richness.
+    function createStarfield() {
+      const count = 12000;
+      const positions = [], colors = [], sizes = [], brightness = [];
+      for (let i = 0; i < count; i++) {
+        const r = THREE.MathUtils.randFloat(40, 160);
+        const phi = Math.acos(THREE.MathUtils.randFloatSpread(2));
+        const theta = THREE.MathUtils.randFloat(0, Math.PI * 2);
+        positions.push(r*Math.sin(phi)*Math.cos(theta), r*Math.sin(phi)*Math.sin(theta), r*Math.cos(phi));
+
+        // Mostly dim, dust-like stars with occasional bright highlights
+        const roll = Math.random();
+        if (roll < 0.05) {
+          // Bright white star (5%)
+          colors.push(0.95, 0.96, 1.0);
+          sizes.push(THREE.MathUtils.randFloat(0.32, 0.55));
+          brightness.push(1.0);
+        } else if (roll < 0.10) {
+          // Bright blue-tinted highlight (5%)
+          colors.push(0.7, 0.85, 1.0);
+          sizes.push(THREE.MathUtils.randFloat(0.26, 0.42));
+          brightness.push(0.85);
+        } else if (roll < 0.78) {
+          // Standard dim white-grey (68%)
+          colors.push(0.55, 0.6, 0.7);
+          sizes.push(THREE.MathUtils.randFloat(0.08, 0.2));
+          brightness.push(0.45);
+        } else if (roll < 0.92) {
+          // Slight blue tint (14%)
+          colors.push(0.5, 0.62, 0.85);
+          sizes.push(THREE.MathUtils.randFloat(0.08, 0.22));
+          brightness.push(0.45);
+        } else {
+          // Slight cyan tint (8%)
+          colors.push(0.45, 0.72, 0.82);
+          sizes.push(THREE.MathUtils.randFloat(0.08, 0.22));
+          brightness.push(0.5);
+        }
+      }
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+      geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+      geo.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1));
+      geo.setAttribute('brightness', new THREE.Float32BufferAttribute(brightness, 1));
+      const mat = new THREE.ShaderMaterial({
+        uniforms: { uTime: { value: 0 } },
+        vertexShader: `
+          attribute float size;
+          attribute vec3 color;
+          attribute float brightness;
+          varying vec3 vColor;
+          varying float vBrightness;
+          uniform float uTime;
+          void main(){
+            vColor = color;
+            vBrightness = brightness;
+            vec4 mv = modelViewMatrix * vec4(position, 1.0);
+            // Twinkle — varies per-star using its position as a phase seed
+            float tw = sin(uTime * 1.6 + position.x * 70.0 + position.y * 30.0) * 0.35 + 0.7;
+            gl_PointSize = size * tw * (280.0 / -mv.z);
+            gl_Position = projectionMatrix * mv;
+          }`,
+        fragmentShader: `
+          varying vec3 vColor;
+          varying float vBrightness;
+          void main(){
+            vec2 c = gl_PointCoord - 0.5;
+            float d = length(c);
+            if (d > 0.5) discard;
+            float core = 1.0 - smoothstep(0.0, 0.5, d);
+            float halo = 1.0 - smoothstep(0.0, 0.5, d * 1.2);
+            float a = core * 0.9 + halo * 0.25;
+            gl_FragColor = vec4(vColor, a * vBrightness);
+          }`,
+        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+      });
+      return new THREE.Points(geo, mat);
+    }
+    const starField = createStarfield();
+    scene.add(starField);
+
+    // Network group — holds the spinning network, offset to the right and
+    // scaled down so the starfield is visible behind/around it on the left.
+    const networkGroup = new THREE.Group();
+    scene.add(networkGroup);
+    function updateNetworkLayout() {
+      const isMobile = (heroSection.clientWidth || window.innerWidth) <= 960;
+      networkGroup.position.x = isMobile ? 0 : 8;
+      networkGroup.scale.setScalar(isMobile ? 0.85 : 0.78);
+    }
+    updateNetworkLayout();
+
+    // Controls — no user input. Network spins itself in the animate loop.
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.enableRotate = false;
+    controls.enableZoom = false;
+    controls.enablePan = false;
+    controls.autoRotate = false;
+
+    // Post-processing
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    const bloomPass = new UnrealBloomPass(new THREE.Vector2(w, h), 1.15, 0.55, 0.78);
+    composer.addPass(bloomPass);
+    composer.addPass(new OutputPass());
+
+    const pulseUniforms = {
+      uTime: { value: 0 },
+      uPulsePositions: { value: [ new THREE.Vector3(1e3,1e3,1e3), new THREE.Vector3(1e3,1e3,1e3), new THREE.Vector3(1e3,1e3,1e3) ] },
+      uPulseTimes: { value: [-1e3,-1e3,-1e3] },
+      uPulseColors: { value: [ new THREE.Color(1,1,1), new THREE.Color(1,1,1), new THREE.Color(1,1,1) ] },
+      uPulseSpeed: { value: 18.0 },
+      uBaseNodeSize: { value: 0.6 }
+    };
+
+    const noiseFn = `
+      vec3 mod289(vec3 x){return x - floor(x*(1.0/289.0))*289.0;}
+      vec4 mod289(vec4 x){return x - floor(x*(1.0/289.0))*289.0;}
+      vec4 permute(vec4 x){return mod289(((x*34.0)+1.0)*x);}
+      vec4 taylorInvSqrt(vec4 r){return 1.79284291400159 - 0.85373472095314*r;}
+      float snoise(vec3 v){
+        const vec2 C = vec2(1.0/6.0, 1.0/3.0);
+        const vec4 D = vec4(0.0, 0.5, 1.0, 2.0);
+        vec3 i = floor(v + dot(v, C.yyy));
+        vec3 x0 = v - i + dot(i, C.xxx);
+        vec3 g = step(x0.yzx, x0.xyz);
+        vec3 l = 1.0 - g;
+        vec3 i1 = min(g.xyz, l.zxy);
+        vec3 i2 = max(g.xyz, l.zxy);
+        vec3 x1 = x0 - i1 + C.xxx;
+        vec3 x2 = x0 - i2 + C.yyy;
+        vec3 x3 = x0 - D.yyy;
+        i = mod289(i);
+        vec4 p = permute(permute(permute(i.z + vec4(0.0,i1.z,i2.z,1.0))+i.y + vec4(0.0,i1.y,i2.y,1.0))+i.x + vec4(0.0,i1.x,i2.x,1.0));
+        float n_ = 0.142857142857;
+        vec3 ns = n_ * D.wyz - D.xzx;
+        vec4 j = p - 49.0 * floor(p * ns.z * ns.z);
+        vec4 x_ = floor(j * ns.z);
+        vec4 y_ = floor(j - 7.0 * x_);
+        vec4 x = x_ * ns.x + ns.yyyy;
+        vec4 y = y_ * ns.x + ns.yyyy;
+        vec4 h = 1.0 - abs(x) - abs(y);
+        vec4 b0 = vec4(x.xy, y.xy);
+        vec4 b1 = vec4(x.zw, y.zw);
+        vec4 s0 = floor(b0)*2.0 + 1.0;
+        vec4 s1 = floor(b1)*2.0 + 1.0;
+        vec4 sh = -step(h, vec4(0.0));
+        vec4 a0 = b0.xzyw + s0.xzyw * sh.xxyy;
+        vec4 a1 = b1.xzyw + s1.xzyw * sh.zzww;
+        vec3 p0 = vec3(a0.xy, h.x);
+        vec3 p1 = vec3(a0.zw, h.y);
+        vec3 p2 = vec3(a1.xy, h.z);
+        vec3 p3 = vec3(a1.zw, h.w);
+        vec4 norm = taylorInvSqrt(vec4(dot(p0,p0), dot(p1,p1), dot(p2,p2), dot(p3,p3)));
+        p0 *= norm.x; p1 *= norm.y; p2 *= norm.z; p3 *= norm.w;
+        vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);
+        m = m*m;
+        return 42.0 * dot(m*m, vec4(dot(p0,x0), dot(p1,x1), dot(p2,x2), dot(p3,x3)));
+      }`;
+
+    const nodeShader = {
+      vertexShader: `${noiseFn}
+        attribute float nodeSize; attribute float nodeType; attribute vec3 nodeColor; attribute float distanceFromRoot;
+        uniform float uTime; uniform vec3 uPulsePositions[3]; uniform float uPulseTimes[3]; uniform float uPulseSpeed; uniform float uBaseNodeSize;
+        varying vec3 vColor; varying float vNodeType; varying vec3 vPosition; varying float vPulseIntensity; varying float vDistanceFromRoot; varying float vGlow;
+        float getPulseIntensity(vec3 p, vec3 pp, float pt){
+          if (pt < 0.0) return 0.0;
+          float dt = uTime - pt;
+          if (dt < 0.0 || dt > 4.0) return 0.0;
+          float pr = dt * uPulseSpeed;
+          float dc = distance(p, pp);
+          float wp = abs(dc - pr);
+          return smoothstep(3.0, 0.0, wp) * smoothstep(4.0, 0.0, dt);
+        }
+        void main(){
+          vNodeType = nodeType; vColor = nodeColor; vDistanceFromRoot = distanceFromRoot;
+          vec3 wp = (modelMatrix * vec4(position, 1.0)).xyz;
+          vPosition = wp;
+          float t = 0.0;
+          for (int i = 0; i < 3; i++) t += getPulseIntensity(wp, uPulsePositions[i], uPulseTimes[i]);
+          vPulseIntensity = min(t, 1.0);
+          float br = sin(uTime*0.7 + distanceFromRoot*0.15)*0.15 + 0.85;
+          float bs = nodeSize * br;
+          float ps = bs * (1.0 + vPulseIntensity*2.5);
+          vGlow = 0.5 + 0.5*sin(uTime*0.5 + distanceFromRoot*0.2);
+          vec3 mp = position;
+          if (nodeType > 0.5) { float n = snoise(position*0.08 + uTime*0.08); mp += normal*n*0.15; }
+          vec4 mv = modelViewMatrix * vec4(mp, 1.0);
+          gl_PointSize = ps * uBaseNodeSize * (1000.0 / -mv.z);
+          gl_Position = projectionMatrix * mv;
+        }`,
+      fragmentShader: `
+        uniform float uTime; uniform vec3 uPulseColors[3];
+        varying vec3 vColor; varying float vNodeType; varying vec3 vPosition; varying float vPulseIntensity; varying float vDistanceFromRoot; varying float vGlow;
+        void main(){
+          vec2 c = 2.0*gl_PointCoord - 1.0;
+          float d = length(c);
+          if (d > 1.0) discard;
+          float g1 = 1.0 - smoothstep(0.0, 0.5, d);
+          float g2 = 1.0 - smoothstep(0.0, 1.0, d);
+          float gs = pow(g1, 1.2) + g2*0.3;
+          float bc = 0.9 + 0.1*sin(uTime*0.6 + vDistanceFromRoot*0.25);
+          vec3 base = vColor * bc;
+          vec3 fc = base;
+          if (vPulseIntensity > 0.0) {
+            vec3 pc = mix(vec3(1.0), uPulseColors[0], 0.4);
+            fc = mix(base, pc, vPulseIntensity*0.8);
+            fc *= (1.0 + vPulseIntensity*1.2);
+            gs *= (1.0 + vPulseIntensity);
+          }
+          float core = smoothstep(0.4, 0.0, d);
+          fc += vec3(1.0)*core*0.3;
+          float a = gs*(0.95 - 0.3*d);
+          float cd = length(vPosition - cameraPosition);
+          float df = smoothstep(100.0, 15.0, cd);
+          if (vNodeType > 0.5) { fc *= 1.1; a *= 0.9; }
+          fc *= (1.0 + vGlow*0.1);
+          gl_FragColor = vec4(fc, a*df);
+        }`
+    };
+
+    const connectionShader = {
+      vertexShader: `${noiseFn}
+        attribute vec3 startPoint; attribute vec3 endPoint; attribute float connectionStrength; attribute float pathIndex; attribute vec3 connectionColor;
+        uniform float uTime; uniform vec3 uPulsePositions[3]; uniform float uPulseTimes[3]; uniform float uPulseSpeed;
+        varying vec3 vColor; varying float vConnectionStrength; varying float vPulseIntensity; varying float vPathPosition; varying float vDistanceFromCamera;
+        float getPulseIntensity(vec3 p, vec3 pp, float pt){
+          if (pt < 0.0) return 0.0;
+          float dt = uTime - pt;
+          if (dt < 0.0 || dt > 4.0) return 0.0;
+          float pr = dt * uPulseSpeed;
+          float dc = distance(p, pp);
+          float wp = abs(dc - pr);
+          return smoothstep(3.0, 0.0, wp) * smoothstep(4.0, 0.0, dt);
+        }
+        void main(){
+          float t = position.x;
+          vPathPosition = t;
+          vec3 mid = mix(startPoint, endPoint, 0.5);
+          float po = sin(t*3.14159)*0.15;
+          vec3 perp = normalize(cross(normalize(endPoint - startPoint), vec3(0.0, 1.0, 0.0)));
+          if (length(perp) < 0.1) perp = vec3(1.0, 0.0, 0.0);
+          mid += perp * po;
+          vec3 p0 = mix(startPoint, mid, t);
+          vec3 p1 = mix(mid, endPoint, t);
+          vec3 fp = mix(p0, p1, t);
+          float n = snoise(vec3(pathIndex*0.08, t*0.6, uTime*0.15));
+          fp += perp * n * 0.12;
+          vec3 wp = (modelMatrix * vec4(fp, 1.0)).xyz;
+          float pulse = 0.0;
+          for (int i = 0; i < 3; i++) pulse += getPulseIntensity(wp, uPulsePositions[i], uPulseTimes[i]);
+          vPulseIntensity = min(pulse, 1.0);
+          vColor = connectionColor;
+          vConnectionStrength = connectionStrength;
+          vDistanceFromCamera = length(wp - cameraPosition);
+          gl_Position = projectionMatrix * modelViewMatrix * vec4(fp, 1.0);
+        }`,
+      fragmentShader: `
+        uniform float uTime; uniform vec3 uPulseColors[3];
+        varying vec3 vColor; varying float vConnectionStrength; varying float vPulseIntensity; varying float vPathPosition; varying float vDistanceFromCamera;
+        void main(){
+          float f1 = sin(vPathPosition*25.0 - uTime*4.0)*0.5 + 0.5;
+          float f2 = sin(vPathPosition*15.0 - uTime*2.5 + 1.57)*0.5 + 0.5;
+          float cf = (f1 + f2*0.5) / 1.5;
+          vec3 base = vColor * (0.8 + 0.2*sin(uTime*0.6 + vPathPosition*12.0));
+          float fi = 0.4 * cf * vConnectionStrength;
+          vec3 fc = base;
+          if (vPulseIntensity > 0.0) {
+            vec3 pc = mix(vec3(1.0), uPulseColors[0], 0.3);
+            fc = mix(base, pc*1.2, vPulseIntensity*0.7);
+            fi += vPulseIntensity*0.8;
+          }
+          fc *= (0.7 + fi + vConnectionStrength*0.5);
+          float ba = 0.7 * vConnectionStrength;
+          float fa = cf*0.3;
+          float a = ba + fa;
+          a = mix(a, min(1.0, a*2.5), vPulseIntensity);
+          float df = smoothstep(100.0, 15.0, vDistanceFromCamera);
+          gl_FragColor = vec4(fc, a*df);
+        }`
+    };
+
+    class Node {
+      constructor(position, level = 0, type = 0) {
+        this.position = position;
+        this.connections = [];
+        this.level = level; this.type = type;
+        this.size = type === 0 ? THREE.MathUtils.randFloat(0.8, 1.4) : THREE.MathUtils.randFloat(0.5, 1.0);
+        this.distanceFromRoot = 0;
+      }
+      addConnection(node, strength = 1.0) {
+        if (!this.isConnectedTo(node)) {
+          this.connections.push({ node, strength });
+          node.connections.push({ node: this, strength });
+        }
+      }
+      isConnectedTo(node) { return this.connections.some(c => c.node === node); }
+    }
+
+    function generateNeuralNetwork(formationIndex, densityFactor = 1.0) {
+      let nodes = []; let rootNode;
+
+      function crystallineSphere() {
+        rootNode = new Node(new THREE.Vector3(0,0,0), 0, 0); rootNode.size = 2.0; nodes.push(rootNode);
+        const layers = 5; const phi = (1 + Math.sqrt(5))/2;
+        for (let layer = 1; layer <= layers; layer++) {
+          const radius = layer * 4;
+          const np = Math.floor(layer * 12 * densityFactor);
+          for (let i = 0; i < np; i++) {
+            const ph = Math.acos(1 - 2*(i+0.5)/np);
+            const th = 2*Math.PI*i/phi;
+            const pos = new THREE.Vector3(radius*Math.sin(ph)*Math.cos(th), radius*Math.sin(ph)*Math.sin(th), radius*Math.cos(ph));
+            const isLeaf = layer === layers || Math.random() < 0.3;
+            const n = new Node(pos, layer, isLeaf ? 1 : 0);
+            n.distanceFromRoot = radius; nodes.push(n);
+            if (layer > 1) {
+              const prev = nodes.filter(x => x.level === layer-1 && x !== rootNode);
+              prev.sort((a,b) => pos.distanceTo(a.position) - pos.distanceTo(b.position));
+              for (let j = 0; j < Math.min(3, prev.length); j++) {
+                const d = pos.distanceTo(prev[j].position);
+                n.addConnection(prev[j], Math.max(0.3, 1.0 - d/(radius*2)));
+              }
+            } else { rootNode.addConnection(n, 0.9); }
+          }
+          const ln = nodes.filter(x => x.level === layer && x !== rootNode);
+          for (const n of ln) {
+            const nearby = ln.filter(x => x !== n).sort((a,b) => n.position.distanceTo(a.position) - n.position.distanceTo(b.position)).slice(0, 5);
+            for (const nn of nearby) {
+              const d = n.position.distanceTo(nn.position);
+              if (d < radius*0.8 && !n.isConnectedTo(nn)) n.addConnection(nn, 0.6);
+            }
+          }
+        }
+      }
+
+      function helixLattice() {
+        rootNode = new Node(new THREE.Vector3(0,0,0), 0, 0); rootNode.size = 1.8; nodes.push(rootNode);
+        const numH = 4, height = 30, maxR = 12;
+        const nph = Math.floor(50 * densityFactor);
+        const helices = [];
+        for (let h = 0; h < numH; h++) {
+          const phase = (h/numH)*Math.PI*2; const hn = [];
+          for (let i = 0; i < nph; i++) {
+            const t = i/(nph-1);
+            const y = (t-0.5)*height;
+            const rs = Math.sin(t*Math.PI)*0.7 + 0.3;
+            const r = maxR*rs;
+            const a = phase + t*Math.PI*6;
+            const pos = new THREE.Vector3(r*Math.cos(a), y, r*Math.sin(a));
+            const lvl = Math.ceil(t*5);
+            const isLeaf = i > nph-5 || Math.random() < 0.25;
+            const n = new Node(pos, lvl, isLeaf ? 1 : 0);
+            n.distanceFromRoot = Math.sqrt(r*r + y*y);
+            n.helixT = t;
+            nodes.push(n); hn.push(n);
+          }
+          helices.push(hn);
+          rootNode.addConnection(hn[0], 1.0);
+          for (let i = 0; i < hn.length-1; i++) hn[i].addConnection(hn[i+1], 0.85);
+        }
+        for (let h = 0; h < numH; h++) {
+          const cur = helices[h], nxt = helices[(h+1)%numH];
+          for (let i = 0; i < cur.length; i += 5) {
+            const idx = Math.round(cur[i].helixT * (nxt.length-1));
+            if (idx < nxt.length) cur[i].addConnection(nxt[idx], 0.7);
+          }
+        }
+      }
+
+      function fractalWeb() {
+        rootNode = new Node(new THREE.Vector3(0,0,0), 0, 0); rootNode.size = 1.6; nodes.push(rootNode);
+        const branches = 6, maxDepth = 4;
+        function createBranch(start, dir, depth, strength, scale) {
+          if (depth > maxDepth) return;
+          const len = 5*scale;
+          const ep = new THREE.Vector3().copy(start.position).add(dir.clone().multiplyScalar(len));
+          const isLeaf = depth === maxDepth || Math.random() < 0.3;
+          const n = new Node(ep, depth, isLeaf ? 1 : 0);
+          n.distanceFromRoot = rootNode.position.distanceTo(ep);
+          nodes.push(n);
+          start.addConnection(n, strength);
+          if (depth < maxDepth) {
+            for (let i = 0; i < 3; i++) {
+              const ang = (i/3)*Math.PI*2;
+              const p1 = new THREE.Vector3(-dir.y, dir.x, 0).normalize();
+              const p2 = dir.clone().cross(p1).normalize();
+              const nd = new THREE.Vector3().copy(dir)
+                .add(p1.clone().multiplyScalar(Math.cos(ang)*0.7))
+                .add(p2.clone().multiplyScalar(Math.sin(ang)*0.7))
+                .normalize();
+              createBranch(n, nd, depth+1, strength*0.7, scale*0.75);
+            }
+          }
+        }
+        for (let i = 0; i < branches; i++) {
+          const ph = Math.acos(1 - 2*(i+0.5)/branches);
+          const th = Math.PI*(1+Math.sqrt(5))*i;
+          const dir = new THREE.Vector3(Math.sin(ph)*Math.cos(th), Math.sin(ph)*Math.sin(th), Math.cos(ph)).normalize();
+          createBranch(rootNode, dir, 1, 0.9, 1.0);
+        }
+      }
+
+      switch (formationIndex % 3) {
+        case 0: crystallineSphere(); break;
+        case 1: helixLattice(); break;
+        case 2: fractalWeb(); break;
+      }
+
+      if (densityFactor < 1.0) {
+        const target = Math.ceil(nodes.length * Math.max(0.3, densityFactor));
+        const keep = new Set([rootNode]);
+        const sorted = nodes.filter(n => n !== rootNode).sort((a,b) =>
+          (b.connections.length*(1/(b.distanceFromRoot+1))) - (a.connections.length*(1/(a.distanceFromRoot+1)))
+        );
+        for (let i = 0; i < Math.min(target-1, sorted.length); i++) keep.add(sorted[i]);
+        nodes = nodes.filter(n => keep.has(n));
+        nodes.forEach(n => { n.connections = n.connections.filter(c => keep.has(c.node)); });
+      }
+      return { nodes, rootNode };
+    }
+
+    let neuralNetwork = null, nodesMesh = null, connectionsMesh = null;
+
+    function createNetworkVisualization(formationIndex, densityFactor = 1.0) {
+      if (nodesMesh) { networkGroup.remove(nodesMesh); nodesMesh.geometry.dispose(); nodesMesh.material.dispose(); }
+      if (connectionsMesh) { networkGroup.remove(connectionsMesh); connectionsMesh.geometry.dispose(); connectionsMesh.material.dispose(); }
+      neuralNetwork = generateNeuralNetwork(formationIndex, densityFactor);
+      if (!neuralNetwork || !neuralNetwork.nodes.length) return;
+
+      const ng = new THREE.BufferGeometry();
+      const np = [], nt = [], ns = [], nc = [], dr = [];
+      const palette = colorPalettes[config.activePaletteIndex];
+      neuralNetwork.nodes.forEach((n) => {
+        np.push(n.position.x, n.position.y, n.position.z);
+        nt.push(n.type); ns.push(n.size); dr.push(n.distanceFromRoot);
+        const ci = Math.min(n.level, palette.length - 1);
+        const col = palette[ci % palette.length].clone();
+        col.offsetHSL(THREE.MathUtils.randFloatSpread(0.03), THREE.MathUtils.randFloatSpread(0.08), THREE.MathUtils.randFloatSpread(0.08));
+        nc.push(col.r, col.g, col.b);
+      });
+      ng.setAttribute('position', new THREE.Float32BufferAttribute(np, 3));
+      ng.setAttribute('nodeType', new THREE.Float32BufferAttribute(nt, 1));
+      ng.setAttribute('nodeSize', new THREE.Float32BufferAttribute(ns, 1));
+      ng.setAttribute('nodeColor', new THREE.Float32BufferAttribute(nc, 3));
+      ng.setAttribute('distanceFromRoot', new THREE.Float32BufferAttribute(dr, 1));
+
+      const nm = new THREE.ShaderMaterial({
+        uniforms: THREE.UniformsUtils.clone(pulseUniforms),
+        vertexShader: nodeShader.vertexShader,
+        fragmentShader: nodeShader.fragmentShader,
+        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+      });
+      nodesMesh = new THREE.Points(ng, nm);
+      networkGroup.add(nodesMesh);
+
+      const cg = new THREE.BufferGeometry();
+      const cc = [], cs = [], cp = [], sp = [], ep = [], pi = [];
+      const proc = new Set(); let pIdx = 0;
+      neuralNetwork.nodes.forEach((node, i) => {
+        node.connections.forEach(conn => {
+          const ci = neuralNetwork.nodes.indexOf(conn.node);
+          if (ci === -1) return;
+          const key = [Math.min(i, ci), Math.max(i, ci)].join('-');
+          if (proc.has(key)) return;
+          proc.add(key);
+          const segs = 20;
+          for (let k = 0; k < segs; k++) {
+            const t = k/(segs-1);
+            cp.push(t, 0, 0);
+            sp.push(node.position.x, node.position.y, node.position.z);
+            ep.push(conn.node.position.x, conn.node.position.y, conn.node.position.z);
+            pi.push(pIdx); cs.push(conn.strength);
+            const al = Math.min(Math.floor((node.level + conn.node.level)/2), palette.length - 1);
+            const col = palette[al % palette.length].clone();
+            col.offsetHSL(THREE.MathUtils.randFloatSpread(0.03), THREE.MathUtils.randFloatSpread(0.08), THREE.MathUtils.randFloatSpread(0.08));
+            cc.push(col.r, col.g, col.b);
+          }
+          pIdx++;
+        });
+      });
+      cg.setAttribute('position', new THREE.Float32BufferAttribute(cp, 3));
+      cg.setAttribute('startPoint', new THREE.Float32BufferAttribute(sp, 3));
+      cg.setAttribute('endPoint', new THREE.Float32BufferAttribute(ep, 3));
+      cg.setAttribute('connectionStrength', new THREE.Float32BufferAttribute(cs, 1));
+      cg.setAttribute('connectionColor', new THREE.Float32BufferAttribute(cc, 3));
+      cg.setAttribute('pathIndex', new THREE.Float32BufferAttribute(pi, 1));
+
+      const cm = new THREE.ShaderMaterial({
+        uniforms: THREE.UniformsUtils.clone(pulseUniforms),
+        vertexShader: connectionShader.vertexShader,
+        fragmentShader: connectionShader.fragmentShader,
+        transparent: true, depthWrite: false, blending: THREE.AdditiveBlending
+      });
+      connectionsMesh = new THREE.LineSegments(cg, cm);
+      networkGroup.add(connectionsMesh);
+
+      palette.forEach((c, i) => {
+        if (i < 3) { nm.uniforms.uPulseColors.value[i].copy(c); cm.uniforms.uPulseColors.value[i].copy(c); }
+      });
+    }
+
+    function updateTheme(idx) {
+      config.activePaletteIndex = idx;
+      createNetworkVisualization(config.currentFormation, config.densityFactor);
+    }
+
+    // Pulse interaction
+    const raycaster = new THREE.Raycaster();
+    const pointer = new THREE.Vector2();
+    const interactionPlane = new THREE.Plane(new THREE.Vector3(0,0,1), 0);
+    const interactionPoint = new THREE.Vector3();
+    let lastPulseIndex = 0;
+
+    function triggerPulse(clientX, clientY) {
+      const rect = canvas.getBoundingClientRect();
+      pointer.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+      pointer.y = -((clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(pointer, camera);
+      interactionPlane.normal.copy(camera.position).normalize();
+      interactionPlane.constant = -interactionPlane.normal.dot(camera.position) + camera.position.length()*0.5;
+      if (raycaster.ray.intersectPlane(interactionPlane, interactionPoint)) {
+        const t = clock.getElapsedTime();
+        if (nodesMesh && connectionsMesh) {
+          lastPulseIndex = (lastPulseIndex+1) % 3;
+          nodesMesh.material.uniforms.uPulsePositions.value[lastPulseIndex].copy(interactionPoint);
+          nodesMesh.material.uniforms.uPulseTimes.value[lastPulseIndex] = t;
+          connectionsMesh.material.uniforms.uPulsePositions.value[lastPulseIndex].copy(interactionPoint);
+          connectionsMesh.material.uniforms.uPulseTimes.value[lastPulseIndex] = t;
+          const pal = colorPalettes[config.activePaletteIndex];
+          const rc = pal[Math.floor(Math.random()*pal.length)];
+          nodesMesh.material.uniforms.uPulseColors.value[lastPulseIndex].copy(rc);
+          connectionsMesh.material.uniforms.uPulseColors.value[lastPulseIndex].copy(rc);
+        }
+      }
+    }
+
+    function isUiTarget(t) {
+      return t.closest && t.closest('.glass-panel, .hero-controls, .hero-brand-mark, .hero-content');
+    }
+    canvas.addEventListener('click', (e) => {
+      if (isUiTarget(e.target)) return;
+      if (!config.paused) triggerPulse(e.clientX, e.clientY);
+    });
+    canvas.addEventListener('touchstart', (e) => {
+      if (isUiTarget(e.target)) return;
+      if (e.touches.length > 0 && !config.paused) triggerPulse(e.touches[0].clientX, e.touches[0].clientY);
+    }, { passive: true });
+
+    // Horizontal scroll → zoom in/out
+    let zoomProgress = 0;       // 0 = wide, 1 = tight
+    let touchZoomStartX = null;
+    heroSection.addEventListener('wheel', (e) => {
+      // Only intercept when the user is scrolling horizontally
+      // (shift+wheel on mouse, two-finger horizontal swipe on trackpad)
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        e.preventDefault();
+        zoomProgress = Math.min(1, Math.max(0, zoomProgress + e.deltaX * 0.0015));
+      }
+    }, { passive: false });
+    // Mobile: horizontal swipe over the hero zooms (not on UI elements)
+    heroSection.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1 && !isUiTarget(e.target)) {
+        touchZoomStartX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+    heroSection.addEventListener('touchmove', (e) => {
+      if (touchZoomStartX !== null && e.touches.length === 1) {
+        const dx = e.touches[0].clientX - touchZoomStartX;
+        zoomProgress = Math.min(1, Math.max(0, zoomProgress - dx * 0.003));
+        touchZoomStartX = e.touches[0].clientX;
+      }
+    }, { passive: true });
+    heroSection.addEventListener('touchend', () => { touchZoomStartX = null; }, { passive: true });
+
+    // UI bindings (theme + density panel removed; guards keep things safe if reintroduced)
+    document.querySelectorAll('.theme-button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const idx = parseInt(btn.dataset.theme, 10);
+        updateTheme(idx);
+        document.querySelectorAll('.theme-button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+    const densitySlider = document.getElementById('density-slider');
+    const densityValue = document.getElementById('density-value');
+    if (densitySlider && densityValue) {
+      let densityT;
+      densitySlider.addEventListener('input', (e) => {
+        e.stopPropagation();
+        const v = parseInt(densitySlider.value, 10);
+        config.densityFactor = v / 100;
+        densityValue.textContent = `${v}%`;
+        densitySlider.style.setProperty('--val', v + '%');
+        clearTimeout(densityT);
+        densityT = setTimeout(() => createNetworkVisualization(config.currentFormation, config.densityFactor), 350);
+      });
+    }
+    // (Morph / Freeze / Reset buttons removed)
+    const morphBtn = document.getElementById('morph-btn');
+    if (morphBtn) {
+      morphBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        config.currentFormation = (config.currentFormation + 1) % config.numFormations;
+        createNetworkVisualization(config.currentFormation, config.densityFactor);
+      });
+    }
+    const freezeBtn = document.getElementById('freeze-btn');
+    if (freezeBtn) {
+      freezeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        config.paused = !config.paused;
+        freezeBtn.querySelector('span').textContent = config.paused ? 'Play' : 'Freeze';
+        controls.autoRotate = !config.paused;
+      });
+    }
+    const resetBtn = document.getElementById('reset-btn');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        controls.reset();
+        camera.position.set(0, 8, 28);
+        controls.autoRotate = true;
+      });
+    }
+
+    // Resize
+    function onResize() {
+      const { w, h } = size();
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h, false);
+      composer.setSize(w, h);
+      bloomPass.resolution.set(w, h);
+      updateNetworkLayout();
+    }
+    window.addEventListener('resize', onResize);
+    new ResizeObserver(onResize).observe(heroSection);
+
+    const clock = new THREE.Clock();
+    // Horizontal-scroll-driven zoom — zoomProgress is 0 (wide) → 1 (tight).
+    const FOV_WIDE = 75;
+    const FOV_TIGHT = 38;
+    function animate() {
+      requestAnimationFrame(animate);
+      const t = clock.getElapsedTime();
+      if (!config.paused) {
+        if (nodesMesh) nodesMesh.material.uniforms.uTime.value = t;
+        if (connectionsMesh) connectionsMesh.material.uniforms.uTime.value = t;
+        // Self-spin the network group (camera stays fixed)
+        networkGroup.rotation.y = t * 0.05;
+      }
+      starField.rotation.y += 0.0002;
+      starField.material.uniforms.uTime.value = t;
+
+      // Drive FOV from horizontal-scroll progress (set in wheel/touch handlers)
+      const targetFov = FOV_WIDE - zoomProgress * (FOV_WIDE - FOV_TIGHT);
+      camera.fov += (targetFov - camera.fov) * 0.1;
+      camera.updateProjectionMatrix();
+
+      controls.update();
+      composer.render();
+    }
+    createNetworkVisualization(config.currentFormation, config.densityFactor);
+    animate();
+  </script>
+
+  <script>
+    /* ============ SHIMMER LOADER ============ */
+    window.addEventListener('load', () => {
+      setTimeout(() => document.getElementById('loader').classList.add('hidden'), 700);
+    });
+
+    /* ============ FLOWER OF LIFE (no-op — neural network in hero now) ============ */
+    (function buildFlower() {
+      const svg = document.getElementById('flowerSvg');
+      if (!svg) return;
+      const ns = 'http://www.w3.org/2000/svg';
+      const r = 40, sqrt3 = Math.sqrt(3);
+      const centers = [[0, 0]];
+      for (let i = 0; i < 6; i++) {
+        const a = (i * Math.PI) / 3;
+        centers.push([r * Math.cos(a), r * Math.sin(a)]);
+        centers.push([2 * r * Math.cos(a), 2 * r * Math.sin(a)]);
+        const a2 = a + Math.PI / 6;
+        centers.push([r * sqrt3 * Math.cos(a2), r * sqrt3 * Math.sin(a2)]);
+      }
+      centers.forEach(([x, y], i) => {
+        const c = document.createElementNS(ns, 'circle');
+        c.setAttribute('cx', x.toFixed(2));
+        c.setAttribute('cy', y.toFixed(2));
+        c.setAttribute('r', r);
+        c.style.opacity = i === 0 ? 0.95 : 0.55 + (i % 4) * 0.08;
+        svg.appendChild(c);
+      });
+    })();
+
+    /* ============ NAVBAR SCROLL ============ */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    /* ============ MOBILE MENU ============ */
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuToggle && mobileMenu) {
+      function setMenu(open) {
+        menuToggle.classList.toggle('active', open);
+        mobileMenu.classList.toggle('open', open);
+        menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      menuToggle.addEventListener('click', () => {
+        setMenu(!mobileMenu.classList.contains('open'));
+      });
+      // Close when any nav link inside the overlay is tapped
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => setMenu(false));
+      });
+      // Esc to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) setMenu(false);
+      });
+    }
+
+    /* ============ TYPEWRITER ============ */
+    (function typewriter() {
+      const el = document.getElementById('typewriter');
+      const words = ['grow', 'connect', 'scale', 'thrive', 'bloom'];
+      let wi = 0, ci = 0, deleting = false;
+      function tick() {
+        const word = words[wi];
+        if (!deleting) {
+          el.textContent = word.slice(0, ++ci);
+          if (ci === word.length) { deleting = true; return setTimeout(tick, 1700); }
+        } else {
+          el.textContent = word.slice(0, --ci);
+          if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+        }
+        setTimeout(tick, deleting ? 55 : 110);
+      }
+      tick();
+    })();
+
+    /* ============ THEME TOGGLE (removed from header) ============ */
+    const toggle = document.getElementById('themeToggle');
+    if (toggle) {
+      toggle.addEventListener('click', () => {
+        toggle.classList.toggle('on');
+        const root = document.documentElement;
+        if (toggle.classList.contains('on')) {
+          root.style.setProperty('--accent', '#4FAEB4');
+          root.style.setProperty('--accent-deep', '#2E7C82');
+        } else {
+          root.style.setProperty('--accent', '#71C9CE');
+          root.style.setProperty('--accent-deep', '#4FAEB4');
+        }
+      });
+    }
+
+    /* ============ REVEAL ON SCROLL ============ */
+    const reveal = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            reveal.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => reveal.observe(el));
+
+    /* ============ COUNT-UP STATS ============ */
+    const stats = document.querySelectorAll('.stat');
+    const statObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            const el = e.target;
+            el.classList.add('in-view');
+            const targetRaw = el.dataset.target;
+            const valueEl = el.querySelector('.stat-value');
+            if (targetRaw === '∞') {
+              valueEl.textContent = '∞';
+            } else {
+              const target = +targetRaw;
+              const start = performance.now();
+              const dur = 1400;
+              function frame(now) {
+                const t = Math.min((now - start) / dur, 1);
+                const eased = 1 - Math.pow(1 - t, 3);
+                valueEl.textContent = Math.round(target * eased);
+                if (t < 1) requestAnimationFrame(frame);
+              }
+              requestAnimationFrame(frame);
+            }
+            statObs.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+    stats.forEach((s) => statObs.observe(s));
+
+    /* ============ HEART-BURST ============ */
+    document.querySelectorAll('.like-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const wasLiked = btn.classList.contains('liked');
+        btn.classList.toggle('liked');
+        if (!wasLiked) burstHearts(btn);
+      });
+    });
+    function burstHearts(btn) {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const N = 8;
+      for (let i = 0; i < N; i++) {
+        const p = document.createElement('div');
+        p.className = 'heart-particle';
+        p.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z"/></svg>';
+        document.body.appendChild(p);
+        const angle = (i / N) * Math.PI * 2 + Math.random() * 0.4;
+        const dist = 60 + Math.random() * 50;
+        const dx = Math.cos(angle) * dist;
+        const dy = Math.sin(angle) * dist - 20;
+        p.style.left = cx + 'px';
+        p.style.top = cy + 'px';
+        p.animate(
+          [
+            { transform: 'translate(-50%, -50%) scale(0.4)', opacity: 1 },
+            { transform: `translate(calc(-50% + ${dx}px), calc(-50% + ${dy}px)) scale(1.2)`, opacity: 0.9, offset: 0.6 },
+            { transform: `translate(calc(-50% + ${dx * 1.3}px), calc(-50% + ${dy * 1.3 + 30}px)) scale(0.4)`, opacity: 0 },
+          ],
+          { duration: 900 + Math.random() * 200, easing: 'cubic-bezier(0.2, 0.8, 0.2, 1)' }
+        ).onfinish = () => p.remove();
+      }
+    }
+
+    /* ============ FORM SUBMIT — checkmark draw ============ */
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const success = document.getElementById('formSuccess');
+      success.classList.add('show');
+      setTimeout(() => {
+        success.classList.remove('show');
+        e.target.reset();
+      }, 3200);
+    });
+  </script>
+</body>
+</html>
